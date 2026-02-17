@@ -32,7 +32,7 @@ jobs:
             name: Mocha-Test-Result
             path: test-results.xml
   code-coverage:
-    name: Unit testing
+    name: code-coverage
     runs-on: ubuntu-latest
     steps:
       - name: checkout-repo

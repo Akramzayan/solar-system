@@ -11,6 +11,7 @@ env:
     MONGO_PASSWORD: ${{secrets.MONGO_PASSWORD}}
 jobs:
   unit-testing:
+  code-coverage:
     name: Unit testing
     runs-on: ubuntu-latest
     steps:
@@ -23,11 +24,12 @@ jobs:
       - name: Install dependecies
         run: npm install
 
-      - name: Unit testing
-        run: npm test
+      - name: Check code coverage
+        run: npm coverage
     
       - name: Archive Test Result 
         uses: actions/upload-artifact@v4
         with:
-            name: Mocha-Test-Result
-            path: test-results.xml
+            name: Coed coverage result
+            path: coverage
+            retention-days: 5
